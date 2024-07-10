@@ -3,12 +3,13 @@ plugW = 10;
 plugH = 12;
 
 l = 105;
-h = 20 + plugH;
+h = 30 + plugH;
 
 w1 = 20;
 w2 = 42;
 
 y = 15;
+bottomAngle = 55;
 
 t = 1.0;
 
@@ -30,9 +31,5 @@ difference()
         translate([ -l / 2 - .01, w1 / 2, t ]) cube([ l + .02, 0.1, h ]);
         translate([ -l / 2 - .01, w2 - y, -plugH ]) cube([ l + .02, 0.1, h ]);
     }
-    hull()
-    {
-        translate([ -l / 2 - .01, -y - .01, -plugH ]) cube([ l + .02, 0.1, 0.1 ]);
-        translate([ -l / 2 - .01, -y, h - plugH ]) cube([ l + .02, w1, 0.1 ]);
-    }
+    translate([ -l / 2 - .01, -y, -plugH ]) rotate([ bottomAngle, 0, 0 ]) cube(l + .02);
 }
